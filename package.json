@@ -44,6 +44,7 @@
     "@antv/s2-react": "^1.26.0",
     "@antv/util": "^3.2.5",
     "antd": "4.x",
+    "brain.js": "^2.0.0-beta.23",
     "buffer": "^6.0.3",
     "buffer-browserify": "^0.2.5",
     "node-fetch": "^3.3.0",

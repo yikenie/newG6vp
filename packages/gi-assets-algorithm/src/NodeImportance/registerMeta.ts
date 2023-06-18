@@ -4,8 +4,8 @@ import info from './info';
 export const locale = {
   degree: '度中心性',
   'degree-tip': '根据实体的出入度大小计算',
-  'page-rank': 'PageRank网页排序',
-  'page-rank-tip': '使用PageRank网页排序算法计算',
+  'page-rank': '供应商评价',
+  'page-rank-tip': '给供应商打分',
   'node-property': '节点属性重要性',
   'node-property-tip': '根据节点属性值计算',
   'edge-property': '关系属性重要性',
