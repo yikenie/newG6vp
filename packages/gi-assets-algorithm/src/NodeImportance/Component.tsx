@@ -16,6 +16,8 @@ import ResultTable from './resultTable';
 import { fittingString } from './util';
 import * as brain from 'brain.js';
 
+import { useImmer } from "use-immer";
+
 // 计算 data 里的每个节点的真实度数, 返回一个 node.id: { in, out } 的映射, 并缓存, 在没有更新图数据之前再次进入不再计算
 const getDegreeMap = (data, degreeMap) => {
     if (degreeMap) {
@@ -261,8 +263,7 @@ let degreeMap = undefined;
 const NodeImportance: React.FunctionComponent<NodeImportanceProps> = props => {
     const { controlledValues, visible: controlledVisible = true, onOpen, onVisibleChange = () => { } } = props;
 
-    const { graph, data, updateHistory } = useContext();
-
+    const { graph, data, updateHistory, updateContext } = useContext();
     const [visible, setVisible] = useState(false);
     const [currentAlgo, setCurrentAlgo] = useState('page-rank');
     const [degreeType, setDegreeType] = useState(['in', 'out']);
@@ -569,6 +570,13 @@ const NodeImportance: React.FunctionComponent<NodeImportanceProps> = props => {
                                 value: 100 * net.run([Number(node.data.合作时长 / 10), Number(relation[node.data.关系]), Number(classify[node.data.服务业务]), Number((node.data.最新定价 - 401) / 197), Number((node.data.上一季度价格 - 400) / 200), Number(node.data.首家定价), Number((node.data.检验批数 - 90) / 10), Number(node.data.批检不合格率 * 10), Number(node.data.下线率 * 10), Number(node.data.质量专项要求), Number(node.data.重大违约次数 / 10), Number(node.data.整改失效性次数 / 10), Number(node.data.严重不符合项数 / 10), Number(node.data.一般不符合项未整改) / 10, Number(node.data.建议项未整改) / 10, Number(node.data.质量协议签订), Number(node.data.激励项目), Number((node.data.订单完全执行率 - 95) / 5), Number(node.data.订单响应周期) / 100, Number(node.data.供货编码数量 / 100), Number(node.data.基地覆盖率 / 100), Number(node.data.应急得分 / 100)])[0],
                                 originProperties: node,
                             });
+                            console.log(graph.cfg.data);
+                            /**updateContext(graph => { graph.cfg.data.nodes.data });*/
+                        };
+                    });
+                    graph.cfg.data.nodes.forEach(node => {
+                        if (!isNaN(node.data.综合打分)) {
+                            node.data.综合打分 = 100 * net.run([Number(node.data.合作时长 / 10), Number(relation[node.data.关系]), Number(classify[node.data.服务业务]), Number((node.data.最新定价 - 401) / 197), Number((node.data.上一季度价格 - 400) / 200), Number(node.data.首家定价), Number((node.data.检验批数 - 90) / 10), Number(node.data.批检不合格率 * 10), Number(node.data.下线率 * 10), Number(node.data.质量专项要求), Number(node.data.重大违约次数 / 10), Number(node.data.整改失效性次数 / 10), Number(node.data.严重不符合项数 / 10), Number(node.data.一般不符合项未整改) / 10, Number(node.data.建议项未整改) / 10, Number(node.data.质量协议签订), Number(node.data.激励项目), Number((node.data.订单完全执行率 - 95) / 5), Number(node.data.订单响应周期) / 100, Number(node.data.供货编码数量 / 100), Number(node.data.基地覆盖率 / 100), Number(node.data.应急得分 / 100)])[0];
                         };
                     });
                     break;
