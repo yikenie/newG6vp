@@ -277,6 +277,7 @@ const NodeImportance: React.FunctionComponent<NodeImportanceProps> = props => {
     const { validateFields, resetFields } = form;
     const relation = { "外协厂": "1", "普通供应商": "2", "子公司": "3" };
     const classify = { "二级电机": "1", "一级电机": "2", "一级压缩机": "3", "二级压缩机": "4" }
+
     useEffect(() => {
         // 当前有配置节点重要性, 则在数据变换(扩展邻居、展开合并点)时, 重新映射
         if (result) {
@@ -570,8 +571,6 @@ const NodeImportance: React.FunctionComponent<NodeImportanceProps> = props => {
                                 value: 100 * net.run([Number(node.data.合作时长 / 10), Number(relation[node.data.关系]), Number(classify[node.data.服务业务]), Number((node.data.最新定价 - 401) / 197), Number((node.data.上一季度价格 - 400) / 200), Number(node.data.首家定价), Number((node.data.检验批数 - 90) / 10), Number(node.data.批检不合格率 * 10), Number(node.data.下线率 * 10), Number(node.data.质量专项要求), Number(node.data.重大违约次数 / 10), Number(node.data.整改失效性次数 / 10), Number(node.data.严重不符合项数 / 10), Number(node.data.一般不符合项未整改) / 10, Number(node.data.建议项未整改) / 10, Number(node.data.质量协议签订), Number(node.data.激励项目), Number((node.data.订单完全执行率 - 95) / 5), Number(node.data.订单响应周期) / 100, Number(node.data.供货编码数量 / 100), Number(node.data.基地覆盖率 / 100), Number(node.data.应急得分 / 100)])[0],
                                 originProperties: node,
                             });
-                            console.log(graph.cfg.data);
-                            /**updateContext(graph => { graph.cfg.data.nodes.data });*/
                         };
                     });
                     graph.cfg.data.nodes.forEach(node => {
@@ -579,6 +578,13 @@ const NodeImportance: React.FunctionComponent<NodeImportanceProps> = props => {
                             node.data.综合打分 = 100 * net.run([Number(node.data.合作时长 / 10), Number(relation[node.data.关系]), Number(classify[node.data.服务业务]), Number((node.data.最新定价 - 401) / 197), Number((node.data.上一季度价格 - 400) / 200), Number(node.data.首家定价), Number((node.data.检验批数 - 90) / 10), Number(node.data.批检不合格率 * 10), Number(node.data.下线率 * 10), Number(node.data.质量专项要求), Number(node.data.重大违约次数 / 10), Number(node.data.整改失效性次数 / 10), Number(node.data.严重不符合项数 / 10), Number(node.data.一般不符合项未整改) / 10, Number(node.data.建议项未整改) / 10, Number(node.data.质量协议签订), Number(node.data.激励项目), Number((node.data.订单完全执行率 - 95) / 5), Number(node.data.订单响应周期) / 100, Number(node.data.供货编码数量 / 100), Number(node.data.基地覆盖率 / 100), Number(node.data.应急得分 / 100)])[0];
                         };
                     });
+                    /**updateContext(graph => {
+                        graph.cfg.data.nodes.forEach(node => {
+                            if (!isNaN(node.data.综合打分)) {
+                                node.data.综合打分 = 100 * net.run([Number(node.data.合作时长 / 10), Number(relation[node.data.关系]), Number(classify[node.data.服务业务]), Number((node.data.最新定价 - 401) / 197), Number((node.data.上一季度价格 - 400) / 200), Number(node.data.首家定价), Number((node.data.检验批数 - 90) / 10), Number(node.data.批检不合格率 * 10), Number(node.data.下线率 * 10), Number(node.data.质量专项要求), Number(node.data.重大违约次数 / 10), Number(node.data.整改失效性次数 / 10), Number(node.data.严重不符合项数 / 10), Number(node.data.一般不符合项未整改) / 10, Number(node.data.建议项未整改) / 10, Number(node.data.质量协议签订), Number(node.data.激励项目), Number((node.data.订单完全执行率 - 95) / 5), Number(node.data.订单响应周期) / 100, Number(node.data.供货编码数量 / 100), Number(node.data.基地覆盖率 / 100), Number(node.data.应急得分 / 100)])[0];
+                            };
+                        });
+                    });*/
                     break;
                 }
                 case 'degree': {
