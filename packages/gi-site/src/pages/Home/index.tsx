@@ -23,7 +23,7 @@ const Home = props => {
     };
     return (
         <div className="gi-site-home">
-            <section className="greeting">让数据栩栩如生，三步完成从「数据可视分析」到「数据产品构建」～</section>
+            <section className="greeting">供应链数据可视化～</section>
             <div className="container">
                 <section className="flex-left">
                     <GuideCards history={history} />
