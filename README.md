@@ -1,3 +1,4 @@
+本项目出自github上ANTV的G6VP项目
 <p align="center">
   <a href="https://insight.antv.antgroup.com">
     <img width="100" src="https://mdn.alipayobjects.com/huamei_qa8qxu/afts/img/A*JWHaT5RS95YAAAAAAAAAAAAADmJ7AQ/original">
