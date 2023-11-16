@@ -1,13 +1,11 @@
-FROM node:16-alpine
+FROM node:16.14.1
 
 WORKDIR /code
 
-ADD . /code
+COPY . /code
 
 RUN npm install
 
 RUN npm run build
-
-RUN npm start
 
 EXPOSE 8080
