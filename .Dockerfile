@@ -1,0 +1,1 @@
+# gi-site里面有docker文件夹，有dockerfile文件，可以尝试打包

@@ -1,17 +1,17 @@
-import GI_SDK from '@antv/gi-sdk/package.json';
+import GI_SDK from '@antv/gi-sdk/package.json' assert { type: 'json' };
 /** build-in assets */
-import GI_ASSETS_ADVANCE from '@antv/gi-assets-advance/package.json' ;
-import GI_ASSETS_ALGORITHM from '@antv/gi-assets-algorithm/package.json' ;
-import GI_ASSETS_BASIC from '@antv/gi-assets-basic/package.json' ;
-import GI_ASSETS_SCENE from '@antv/gi-assets-scene/package.json' ;
+import GI_ASSETS_ADVANCE from '@antv/gi-assets-advance/package.json'  assert { type: 'json' };
+import GI_ASSETS_ALGORITHM from '@antv/gi-assets-algorithm/package.json'  assert { type: 'json' };
+import GI_ASSETS_BASIC from '@antv/gi-assets-basic/package.json'  assert { type: 'json' };
+import GI_ASSETS_SCENE from '@antv/gi-assets-scene/package.json'  assert { type: 'json' };
 import fs from 'fs';
 /** build-in engine */
-import GI_ASSETS_GALAXYBASE from '@antv/gi-assets-galaxybase/package.json' ;
-import GI_ASSETS_GTAPHSCOPE from '@antv/gi-assets-graphscope/package.json' ;
-import GI_ASSETS_HUGEGRAPH from '@antv/gi-assets-hugegraph/package.json' ;
-import GI_ASSETS_JANUSGRAPH from '@antv/gi-assets-janusgraph/package.json' ;
-import GI_ASSETS_NEO4J from '@antv/gi-assets-neo4j/package.json' ;
-import GI_ASSETS_TUGRAPH from '@antv/gi-assets-tugraph/package.json' ;
+import GI_ASSETS_GALAXYBASE from '@antv/gi-assets-galaxybase/package.json'  assert { type: 'json' };
+import GI_ASSETS_GTAPHSCOPE from '@antv/gi-assets-graphscope/package.json'  assert { type: 'json' };
+import GI_ASSETS_HUGEGRAPH from '@antv/gi-assets-hugegraph/package.json'  assert { type: 'json' };
+import GI_ASSETS_JANUSGRAPH from '@antv/gi-assets-janusgraph/package.json'  assert { type: 'json' };
+import GI_ASSETS_NEO4J from '@antv/gi-assets-neo4j/package.json'  assert { type: 'json' };
+import GI_ASSETS_TUGRAPH from '@antv/gi-assets-tugraph/package.json'  assert { type: 'json' };
 
 import path from 'path';
 export const G6_VERSION = '4.8.14';

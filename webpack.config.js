@@ -3,7 +3,11 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const webpack = require('webpack');
-
+// emitter.setMaxListeners(emitter.getMaxListeners() + 1);
+// emitter.once('event', () => {
+//     // 处理一些事情
+//     emitter.setMaxListeners(Math.max(emitter.getMaxListeners() - 1, 0));
+// });
 module.exports = (env, argv) => {
   const ASSETS_PATH = path.join(__dirname, env.path);
   const ENTRY_PATH = path.join(ASSETS_PATH, 'src/index.tsx');

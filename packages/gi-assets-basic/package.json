@@ -21,7 +21,7 @@
   "scripts": {
     "build": "npm run clean && npm run build:es & npm run build:umd",
     "build:es": "father build",
-    "build:umd": "webpack  --mode production  -c ../../webpack.config.js --env path=/packages/gi-assets-basic",
+    "build:umd": "node webpack  --mode production  -c ../../webpack.config.js --env path=/packages/gi-assets-basic",
     "clean": "rimraf es esm lib dist",
     "docs": "dumi dev",
     "prettier": "prettier --write ./src/**/**/**/*.js",
@@ -56,5 +56,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "webpack": "^5.94.0"
   }
 }
